@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IELTS Quest 6.5 • Hệ thống Chinh phục IELTS Toàn Diện</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎯</text></svg>">
+</head>
+<body>
+  <!-- Header Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <a href="#" class="brand">
+        <div class="brand-logo">🎯</div>
+        <div>
+          <div class="brand-title">IELTS QUEST 6.5</div>
+          <span class="brand-badge">Official Band 6.5 Simulator v4.0</span>
+        </div>
+      </a>
+
+      <!-- Quick User Stats -->
+      <div class="user-stats">
+        <div class="stat-chip" title="Điểm kinh nghiệm tích lũy">
+          <span class="stat-icon">⚡</span>
+          <span id="user-xp" class="stat-val">0 XP</span>
+        </div>
+        <div class="stat-chip" title="Chuỗi ngày học liên tục">
+          <span class="stat-icon">🔥</span>
+          <span id="user-streak" class="stat-val">1 Ngày</span>
+        </div>
+        <div class="stat-chip" title="Dự đoán Band điểm hiện tại">
+          <span class="stat-icon">🏆</span>
+          <span>Band: <strong id="user-band" style="color:var(--accent-emerald);">6.0</strong></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation Tabs -->
+  <nav class="nav-bar">
+    <div class="nav-container">
+      <button class="nav-tab active" data-tab="dashboard">🗺️ Lộ trình Quest</button>
+      <button class="nav-tab" data-tab="vocab">📚 Từ vựng AWL</button>
+      <button class="nav-tab" data-tab="grammar">🛡️ Ngữ pháp 6.5</button>
+      <button class="nav-tab" data-tab="listening">🎧 Listening Lab</button>
+      <button class="nav-tab" data-tab="reading">📖 Reading Arena</button>
+      <button class="nav-tab" data-tab="writing">✍️ Writing Studio</button>
+      <button class="nav-tab" data-tab="speaking">🎙️ Speaking Sim</button>
+      <button class="nav-tab" data-tab="predictor">📊 Dự đoán Band</button>
+    </div>
+  </nav>
+
+  <!-- Main Content Areas -->
+  <main class="main-wrapper">
+
+    <!-- 1. DASHBOARD / ROADMAP TAB -->
+    <section id="tab-dashboard" class="tab-pane active">
+      <div class="hero-banner">
+        <div class="hero-content">
+          <h1>Chào mừng đến với IELTS Quest 6.5!</h1>
+          <p>
+            Chương trình luyện thi IELTS theo cơ chế Game Hóa (Gamification). Hoàn thành từng chặng nhiệm vụ để tích lũy XP, rèn luyện tư duy phản xạ 4 kỹ năng và sẵn sàng bứt phá mục tiêu Band 6.5+.
+          </p>
+          <div style="margin-top:16px; display:flex; gap:12px; flex-wrap:wrap;">
+            <button class="btn btn-primary" onclick="app.switchTab('vocab')">🚀 Bắt đầu Quest hôm nay</button>
+            <button class="btn btn-outline" onclick="app.switchTab('predictor')">📈 Kiểm tra mục tiêu điểm</button>
+          </div>
+        </div>
+        <div class="hero-meter">
+          <div class="meter-circle">
+            <div class="meter-inner">
+              <div id="banner-progress-val">6.3</div>
+              <span>TARGET</span>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:12px; color:var(--text-dim); text-transform:uppercase;">Mục tiêu trọng tâm</div>
+            <div style="font-size:18px; font-weight:800; color:#fff;">Overall Band 6.5</div>
+            <div style="font-size:13px; color:var(--accent-emerald);">Đã mở khóa 4 Chặng</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="roadmap-section">
+        <div class="section-title">
+          <span>📍</span>
+          <span>Bản đồ Chinh phục 4 Chặng (Roadmap Quest)</span>
+        </div>
+        <div id="roadmap-container">
+          <!-- Rendered dynamically by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. VOCABULARY ARENA -->
+    <section id="tab-vocab" class="tab-pane">
+      <div class="section-title">
+        <span>📚</span>
+        <span>Từ vựng Học thuật Nâng cao (Academic Word List &amp; Collocations)</span>
+      </div>
+
+      <div class="vocab-arena">
+        <!-- Flashcard view -->
+        <div class="card-flashcard">
+          <div>
+            <div class="word-head">
+              <div>
+                <div id="vocab-word" class="word-main">Sustainable</div>
+                <div id="vocab-ipa" class="word-ipa">/səˈsteɪnəbl/ • [adj]</div>
+              </div>
+              <button id="btn-speak-word" class="btn btn-outline" style="border-radius:50%; width:44px; height:44px; padding:0;" title="Phát âm từ vựng chuẩn Anh-Anh">
+                🔊
+              </button>
+            </div>
+            
+            <div id="vocab-meaning" class="word-meaning">Bền vững, thân thiện với môi trường</div>
+
+            <div class="colloc-box">
+              <div class="colloc-title">Collocations Chuẩn Band 6.5+:</div>
+              <ul id="vocab-colloc-list" class="colloc-list">
+                <!-- Dynamically injected -->
+              </ul>
+            </div>
+
+            <div style="font-size:14px; font-style:italic; color:var(--text-muted); margin-bottom:12px;" id="vocab-example">
+              "Governments must invest in sustainable energy to mitigate global warming."
+            </div>
+
+            <div style="background:rgba(99,102,241,0.1); border-left:3px solid var(--accent-primary); padding:10px; border-radius:4px; font-size:13px; color:var(--text-muted);">
+              💡 <strong>Chiến thuật 6.5:</strong> <span id="vocab-note">Nâng cấp từ ngữ đơn giản thành từ học thuật chuẩn xác.</span>
+            </div>
+          </div>
+
+          <div class="card-actions">
+            <span id="vocab-counter" style="font-size:13px; color:var(--text-dim); font-weight:700;">1 / 8</span>
+            <div style="display:flex; gap:10px;">
+              <button id="btn-prev-vocab" class="btn btn-outline">⬅ Trước</button>
+              <button id="btn-next-vocab" class="btn btn-primary">Tiếp theo ➡</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mini-Quiz Box -->
+        <div class="quiz-box">
+          <div style="font-size:13px; text-transform:uppercase; color:var(--accent-amber); font-weight:700; margin-bottom:8px;">
+            ⚡ Thử thách phản xạ nhanh (+25 XP)
+          </div>
+          <div id="vocab-quiz-question" class="quiz-question">
+            Loading question...
+          </div>
+          <div id="vocab-quiz-options" class="options-list">
+            <!-- Dynamically injected -->
+          </div>
+          <div id="vocab-quiz-feedback" class="feedback-banner"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. GRAMMAR ARMOR -->
+    <section id="tab-grammar" class="tab-pane">
+      <div class="section-title">
+        <span>🛡️</span>
+        <span>Ngữ pháp Điểm tựa 6.5 (Grammatical Range &amp; Accuracy)</span>
+      </div>
+      <p style="color:var(--text-muted); margin-bottom:20px; font-size:14px;">
+        Giám khảo chấm IELTS đặc biệt chú ý đến khả năng kết hợp mệnh đề phức, mệnh đề quan hệ rút gọn và cấu trúc điều kiện nâng cao không mắc lỗi ngữ pháp cơ bản.
+      </p>
+
+      <div id="grammar-container">
+        <!-- Rendered by app.js -->
+      </div>
+    </section>
+
+    <!-- 4. LISTENING LAB -->
+    <section id="tab-listening" class="tab-pane">
+      <div class="section-title">
+        <span>🎧</span>
+        <span>IELTS Listening Laboratory (Phòng Luyện Nghe Phản Xạ)</span>
+      </div>
+
+      <div class="audio-player-box">
+        <div class="audio-controls">
+          <button id="btn-play-listening" class="audio-btn" title="Nghe đoạn đối thoại mô phỏng giọng bản xứ">
+            ▶
+          </button>
+        </div>
+        <div style="flex-grow:1;">
+          <div style="font-size:15px; font-weight:700; color:#fff;">Section 1: Đăng ký Ký túc xá Sinh viên Quốc tế</div>
+          <div style="font-size:12px; color:var(--text-dim);">Giọng chuẩn British / Australian English • Tốc độ thi thật</div>
+        </div>
+        <button class="btn btn-outline" onclick="app.speakText('Alex Henderson, Master of Environmental Science, ES-9482, 185 pounds', 'en-GB')">
+          💡 Nghe lại từ khóa
+        </button>
+      </div>
+
+      <div id="listening-quiz-container">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+    <!-- 5. READING ARENA -->
+    <section id="tab-reading" class="tab-pane">
+      <div class="section-title">
+        <span>📖</span>
+        <span>IELTS Reading Arena (Đấu Trường Đọc Hiểu Học Thuật)</span>
+      </div>
+
+      <div style="display:grid; grid-template-columns: 1.2fr 1fr; gap:24px;">
+        <!-- Passage Container -->
+        <div style="background:var(--bg-card); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:24px; max-height:650px; overflow-y:auto; line-height:1.8;">
+          <h3 style="color:var(--accent-cyan); font-size:18px; margin-bottom:14px;">The Rise of Smart Eco-Cities in the 21st Century</h3>
+          <div id="reading-passage-text" style="font-size:14px; color:var(--text-muted); white-space:pre-wrap;">
+            <!-- Injected by app.js -->
+          </div>
+        </div>
+
+        <!-- Question Sheet -->
+        <div>
+          <div id="reading-quiz-container">
+            <!-- Injected by app.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. WRITING STUDIO -->
+    <section id="tab-writing" class="tab-pane">
+      <div class="section-title">
+        <span>✍️</span>
+        <span>IELTS Writing Studio (Xưởng Luyện Viết &amp; Phân Tích Chuẩn 6.5)</span>
+      </div>
+
+      <div class="writing-layout">
+        <!-- Prompt & Model Blueprint -->
+        <div class="prompt-card">
+          <span class="badge-xp" style="font-size:12px;">TASK 2 • OPINION / DISCUSSION</span>
+          <h3 style="font-size:17px; margin:10px 0 16px 0; color:#fff; line-height:1.5;">
+            "Some people believe that university education should be completely free for all citizens, while others argue that students should bear the financial burden themselves. Discuss both views and give your own opinion."
+          </h3>
+
+          <div style="background:var(--bg-secondary); padding:16px; border-radius:var(--radius-sm); border:1px solid var(--border-color); margin-bottom:16px;">
+            <div style="font-size:13px; font-weight:700; color:var(--accent-amber); margin-bottom:8px;">📐 Khung dàn ý 4 đoạn chuẩn Band 6.5:</div>
+            <ul style="font-size:13px; color:var(--text-muted); padding-left:18px; line-height:1.7;">
+              <li><strong>Mở bài:</strong> Paraphrase đề + Nêu rõ quan điểm cân bằng (Shared-cost framework).</li>
+              <li><strong>Thân bài 1:</strong> Lập luận phía tài trợ miễn phí (Bình đẳng cơ hội, tăng trưởng GDP).</li>
+              <li><strong>Thân bài 2:</strong> Lập luận phía người học đóng góp (Giảm thâm hụt ngân sách, tăng tinh thần trách nhiệm).</li>
+              <li><strong>Kết bài:</strong> Tóm tắt khẳng định giải pháp phối hợp học bổng + vay ưu đãi.</li>
+            </ul>
+          </div>
+
+          <button class="btn btn-outline" style="width:100%;" onclick="document.getElementById('writing-sample-modal').style.display='block'">
+            🔍 Xem bài mẫu Band 6.5+ hoàn chỉnh
+          </button>
+        </div>
+
+        <!-- Interactive Editor -->
+        <div class="editor-box">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <label for="writing-essay-input" style="font-size:14px; font-weight:700; color:var(--accent-cyan);">Phòng Viết Luận Của Bạn:</label>
+            <button class="btn btn-primary" id="btn-analyze-essay">⚡ Chấm Điểm &amp; Phân Tích</button>
+          </div>
+
+          <textarea id="writing-essay-input" class="essay-textarea" placeholder="Nhập bài luận Task 2 của bạn tại đây (Khuyến nghị 250 - 320 từ)...">It is often argued whether higher education should be universally funded by the state or paid by undergraduates. While government subsidies ensure equal opportunities, I believe a shared-cost system provides a sustainable balance...</textarea>
+
+          <div class="editor-footer">
+            <span id="writing-word-count">Mẹo: Đảm bảo tối thiểu 250 từ để tránh bị trừ điểm Task Response.</span>
+          </div>
+
+          <!-- Analysis Result -->
+          <div id="writing-analysis-result" class="analysis-result">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <h4 style="font-size:16px; color:#fff;">Đánh Giá Toàn Diện Chuẩn IELTS</h4>
+              <span style="font-size:18px; font-weight:800; color:var(--accent-emerald);">Overall: Band <span id="overall-writing-band">6.5</span></span>
+            </div>
+
+            <div class="analysis-grid">
+              <div class="criterion-card">
+                <div class="criterion-score" id="score-tr">6.5</div>
+                <div class="criterion-name">Task Response</div>
+              </div>
+              <div class="criterion-card">
+                <div class="criterion-score" id="score-cc">6.5</div>
+                <div class="criterion-name">Coherence</div>
+              </div>
+              <div class="criterion-card">
+                <div class="criterion-score" id="score-lr">6.5</div>
+                <div class="criterion-name">Lexical</div>
+              </div>
+              <div class="criterion-card">
+                <div class="criterion-score" id="score-gra">6.0</div>
+                <div class="criterion-name">Grammar</div>
+              </div>
+            </div>
+
+            <div id="writing-feedback-comment" style="font-size:13px; color:var(--text-muted); line-height:1.6;">
+              <!-- Injected by app.js -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sample Essay Modal -->
+      <div id="writing-sample-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:100; backdrop-filter:blur(4px);">
+        <div style="max-width:700px; margin:50px auto; background:var(--bg-secondary); border-radius:var(--radius-lg); border:1px solid var(--border-color); padding:30px; max-height:85vh; overflow-y:auto;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+            <h3 style="color:var(--accent-cyan);">Bài mẫu Band 6.5+ Hoàn Chỉnh</h3>
+            <button class="btn btn-outline" onclick="document.getElementById('writing-sample-modal').style.display='none'">Đóng ✕</button>
+          </div>
+          <div style="font-size:14px; line-height:1.8; color:var(--text-muted); white-space:pre-wrap;">
+It is often debated whether higher education should be universally financed by the state or funded directly by prospective undergraduates. While unconditional government sponsorship promotes egalitarian access, I contend that a shared-cost framework constitutes a more sustainable and balanced approach.
+
+On the one hand, advocates of tuition-free university education assert that tertiary schooling is a fundamental catalyst for social mobility. When tertiary institutions are subsidized by taxpayers, gifted individuals from underprivileged demographics are not hindered by exorbitant fee barriers. Consequently, this democratization of academic opportunities cultivates a highly qualified workforce, fostering technological breakthroughs and expanding national gross domestic product. Nordic countries such as Norway and Finland serve as compelling paradigms where publicly funded education correlates strongly with high living standards.
+
+On the other hand, fully subsidizing higher education places a colossal strain on government budgets, potentially necessitating fiscal cutbacks in primary healthcare or municipal infrastructure. Moreover, when tertiary credentials are provided without personal investment, some undergraduates may lack academic diligence or opt for programs with minimal labor market relevance. Requiring students to shoulder a proportional percentage of their tuition—or utilizing income-contingent loan schemes—encourages accountability and ensures university faculties maintain competitive pedagogical quality.
+
+In conclusion, although state subsidies are indispensable to ensure no talented scholar is left behind, completely abolishing tuition is fiscally precarious. A hybrid system combining targeted scholarships with subsidized student loans provides the optimal equilibrium between equity and financial viability.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. SPEAKING SIMULATOR -->
+    <section id="tab-speaking" class="tab-pane">
+      <div class="section-title">
+        <span>🎙️</span>
+        <span>IELTS Speaking Room (Phòng Thi Nói Mô Phỏng Part 2 &amp; Giọng Nói AI)</span>
+      </div>
+
+      <div class="speaking-panel">
+        <div class="cue-card">
+          <div class="cue-card-header">CUE CARD • PART 2 CHALLENGE</div>
+          <h3 id="cue-topic" style="font-size:16px; color:#fff; margin-bottom:12px;">
+            Describe a modern technological device that you find indispensable in your daily life.
+          </h3>
+          <p style="font-size:13px; color:var(--text-dim);">Bạn nên trình bày đầy đủ các khía cạnh sau trong vòng 2 phút:</p>
+          <ul id="cue-bullets" class="cue-bullet-list">
+            <!-- Dynamically injected -->
+          </ul>
+
+          <div style="margin-top:20px; background:rgba(0,0,0,0.2); padding:14px; border-radius:var(--radius-sm);">
+            <div style="font-size:12px; font-weight:700; color:var(--accent-amber); margin-bottom:6px;">Từ vựng ăn điểm gợi ý cho chủ đề này:</div>
+            <ul id="cue-vocab-list" style="list-style:none; font-size:13px; color:var(--text-muted); line-height:1.7;">
+              <!-- Dynamically injected -->
+            </ul>
+          </div>
+        </div>
+
+        <div class="mic-section">
+          <div style="font-size:14px; color:var(--text-muted); margin-bottom:10px;">Nhấn mic để bắt đầu bấm giờ 2 phút &amp; ghi âm nhận diện giọng nói:</div>
+          <div id="mic-btn" class="mic-circle" title="Bắt đầu nói">
+            🎤
+          </div>
+          <div id="speaking-timer" class="timer-display">00:00</div>
+          <div style="font-size:12px; color:var(--text-dim);">Chuẩn thời lượng Part 2: 01:45 - 02:00 phút</div>
+
+          <div class="speech-transcript-box">
+            <div style="font-size:12px; font-weight:700; color:var(--accent-cyan); margin-bottom:4px;">Nội dung nhận diện trực tiếp (Real-time Speech):</div>
+            <div id="speech-transcript">Hãy bắt đầu nói bằng tiếng Anh, trình duyệt sẽ tự động nhận dạng lời nói của bạn tại đây...</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. BAND PREDICTOR -->
+    <section id="tab-predictor" class="tab-pane">
+      <div class="section-title">
+        <span>📊</span>
+        <span>Công Cụ Dự Đoán &amp; Tính Toán IELTS Band Score Chính Thức</span>
+      </div>
+
+      <div style="background:var(--bg-card); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:32px; max-width:800px; margin:0 auto;">
+        <div style="text-align:center; margin-bottom:30px;">
+          <div style="font-size:14px; text-transform:uppercase; color:var(--text-dim); font-weight:700;">Dự báo Điểm Tổng (Overall Band)</div>
+          <div id="predicted-overall-band" style="font-size:64px; font-weight:900; color:var(--accent-emerald); line-height:1.1; margin:10px 0;">6.5</div>
+          <div style="font-size:14px; color:var(--text-muted);">Áp dụng quy tắc làm tròn 0.25 / 0.75 chính thức của IDP &amp; British Council.</div>
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:20px;">
+          <div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:6px; font-weight:600;">
+              <span>🎧 Listening:</span>
+              <span id="val-l" style="color:var(--accent-cyan);">6.5</span>
+            </div>
+            <input type="range" class="band-slider" id="slider-l" min="4.0" max="9.0" step="0.5" value="6.5" style="width:100%; accent-color:var(--accent-primary);">
+          </div>
+
+          <div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:6px; font-weight:600;">
+              <span>📖 Reading:</span>
+              <span id="val-r" style="color:var(--accent-cyan);">6.5</span>
+            </div>
+            <input type="range" class="band-slider" id="slider-r" min="4.0" max="9.0" step="0.5" value="6.5" style="width:100%; accent-color:var(--accent-primary);">
+          </div>
+
+          <div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:6px; font-weight:600;">
+              <span>✍️ Writing:</span>
+              <span id="val-w" style="color:var(--accent-cyan);">6.0</span>
+            </div>
+            <input type="range" class="band-slider" id="slider-w" min="4.0" max="9.0" step="0.5" value="6.0" style="width:100%; accent-color:var(--accent-primary);">
+          </div>
+
+          <div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:6px; font-weight:600;">
+              <span>🎙️ Speaking:</span>
+              <span id="val-s" style="color:var(--accent-cyan);">6.0</span>
+            </div>
+            <input type="range" class="band-slider" id="slider-s" min="4.0" max="9.0" step="0.5" value="6.0" style="width:100%; accent-color:var(--accent-primary);">
+          </div>
+        </div>
+
+        <div style="margin-top:30px; background:rgba(0,0,0,0.3); padding:16px; border-radius:var(--radius-sm); font-size:13px; color:var(--text-muted); line-height:1.6;">
+          💡 <strong>Chiến thuật đạt 6.5 nhanh nhất:</strong> Với hai kỹ năng tiếp nhận (Listening &amp; Reading), hãy duy trì mức <strong>6.5</strong> (khoảng 27-29 câu đúng). Khi đó, hai kỹ năng sản sinh (Writing &amp; Speaking) chỉ cần đạt <strong>6.0</strong> là bạn đã chắc chắn cầm trong tay tấm bằng Overall <strong>6.5</strong>!
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div>IELTS QUEST 6.5 • Nền tảng Học tập &amp; Luyện thi IELTS Hiện đại • Phiên bản 4.0</div>
+    <div style="margin-top:4px; color:var(--text-dim);">Chạy mượt mà trực tiếp trên mọi trình duyệt • Không cần cài đặt phần mềm phụ trợ</div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
