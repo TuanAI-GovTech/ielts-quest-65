@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cẩm Nang Hướng Dẫn Sử Dụng • Hệ Thống IELTS Quest 6.5</title>
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --primary-light: #818cf8;
+      --secondary: #0f172a;
+      --accent: #10b981;
+      --amber: #f59e0b;
+      --rose: #f43f5e;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      padding-bottom: 60px;
+    }
+
+    /* Header */
+    .hero-header {
+      background: linear-gradient(135deg, #1e1b4b, #312e81, #0f172a);
+      color: #ffffff;
+      padding: 48px 24px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      position: relative;
+    }
+
+    .badge-top {
+      display: inline-block;
+      background: rgba(16, 185, 129, 0.2);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-header h1 {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-subtitle {
+      font-size: 16px;
+      color: #cbd5e1;
+      max-width: 750px;
+      margin: 0 auto 24px auto;
+    }
+
+    .header-actions {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: none;
+    }
+
+    .btn-live {
+      background: #10b981;
+      color: #fff;
+    }
+
+    .btn-live:hover {
+      background: #059669;
+      box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+    }
+
+    .btn-print {
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-print:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    /* Container */
+    .main-content {
+      max-width: 960px;
+      margin: -24px auto 0 auto;
+      padding: 0 20px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 32px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    .section-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: #1e1b4b;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 2px solid #eef2f6;
+      padding-bottom: 12px;
+    }
+
+    .section-title span.icon {
+      font-size: 26px;
+    }
+
+    /* Link highlight box */
+    .link-box {
+      background: #f0fdf4;
+      border: 2px dashed #86efac;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 16px 0;
+      text-align: center;
+    }
+
+    .link-box a {
+      font-size: 20px;
+      font-weight: 800;
+      color: #15803d;
+      text-decoration: underline;
+      word-break: break-all;
+    }
+
+    /* Grid for steps */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    @media (max-width: 768px) {
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .step-item {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      position: relative;
+    }
+
+    .step-num {
+      position: absolute;
+      top: -12px;
+      left: 16px;
+      background: var(--primary);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 2px 10px;
+      border-radius: 12px;
+    }
+
+    .step-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--secondary);
+      margin: 6px 0 8px 0;
+    }
+
+    .step-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    /* Skills Table */
+    .feature-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+    }
+
+    .feature-table th, .feature-table td {
+      padding: 14px 16px;
+      border: 1px solid var(--border);
+      text-align: left;
+      font-size: 14px;
+    }
+
+    .feature-table th {
+      background: #f1f5f9;
+      color: #0f172a;
+      font-weight: 700;
+    }
+
+    .feature-table tr:nth-child(even) {
+      background: #f8fafc;
+    }
+
+    /* Tips & Callout */
+    .callout {
+      background: #eff6ff;
+      border-left: 4px solid var(--primary);
+      padding: 16px 20px;
+      border-radius: 0 10px 10px 0;
+      margin: 16px 0;
+      font-size: 14px;
+      color: #1e3a8a;
+    }
+
+    .callout strong {
+      color: #1e40af;
+    }
+
+    /* Footer */
+    .doc-footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    @media print {
+      body {
+        background: #fff;
+        padding: 0;
+      }
+      .hero-header {
+        background: none;
+        color: #000;
+        padding: 20px 0;
+      }
+      .btn-print, .btn-live {
+        display: none;
+      }
+      .card {
+        box-shadow: none;
+        border: 1px solid #ccc;
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="hero-header">
+    <span class="badge-top">Tài Liệu Hướng Dẫn Gia Đình &amp; Học Viên</span>
+    <h1>HƯỚNG DẪN SỬ DỤNG HỆ THỐNG IELTS QUEST 6.5</h1>
+    <p class="hero-subtitle">
+      Cẩm nang từng bước giúp ba mẹ và các con khai thác tối đa nền tảng luyện thi IELTS Gamification đạt chuẩn Band 6.5+ trên điện thoại, máy tính bảng và máy tính.
+    </p>
+    <div class="header-actions">
+      <a href="https://tuanai-govtech.github.io/ielts-quest-65/" target="_blank" class="btn btn-live">
+        🚀 Mở Web Học Trực Tiếp Online
+      </a>
+      <button onclick="window.print()" class="btn btn-print">
+        🖨️ In Hướng Dẫn / Lưu File PDF
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+
+    <!-- Card 1: Địa chỉ truy cập -->
+    <div class="card">
+      <div class="section-title">
+        <span class="icon">🌐</span>
+        <span>1. Đường Link Truy Cập &amp; Sử Dụng Hàng Ngày</span>
+      </div>
+      <p>Ứng dụng đã được triển khai online chính thức trên máy chủ đám mây của GitHub Pages, hoàn toàn miễn phí, an toàn và bảo mật.</p>
+      
+      <div class="link-box">
+        <div style="font-size:13px; color:#15803d; font-weight:700; margin-bottom:6px; text-transform:uppercase;">
+          Link Web Trực Tiếp (Mở trên mọi thiết bị):
+        </div>
+        <a href="https://tuanai-govtech.github.io/ielts-quest-65/" target="_blank">
+          https://tuanai-govtech.github.io/ielts-quest-65/
+        </a>
+      </div>
+
+      <div class="callout">
+        💡 <strong>Mẹo hay cho ba mẹ:</strong> Sau khi mở link trên điện thoại iPhone/Android của các con, hãy bấm nút <em>"Thêm vào Màn hình chính" (Add to Home Screen)</em>. Biểu tượng ứng dụng sẽ xuất hiện trên màn hình điện thoại y hệt như một app cài từ App Store, các con chỉ cần chạm vào là học ngay mỗi ngày!
+      </div>
+    </div>
+
+    <!-- Card 2: Cấu trúc 4 chặng Quest -->
+    <div class="card">
+      <div class="section-title">
+        <span class="icon">🗺️</span>
+        <span>2. Lộ Trình 4 Chặng Chinh Phục Band 6.5 (Roadmap)</span>
+      </div>
+      <p>Hệ thống được thiết kế theo cơ chế trò chơi (Gamification). Học sinh làm bài đúng sẽ được cộng điểm XP, mở khóa huy hiệu và duy trì chuỗi ngày học (Streak):</p>
+
+      <div class="steps-grid">
+        <div class="step-item">
+          <span class="step-num">CHẶNG 1</span>
+          <div class="step-title">🎯 Nền Tảng Từ Vựng &amp; Ngữ Pháp</div>
+          <div class="step-desc">
+            Nạp 200+ từ vựng học thuật thuộc danh mục Academic Word List (AWL), nắm vững collocations và rèn luyện câu ghép/câu phức không mắc lỗi cơ bản.
+          </div>
+        </div>
+
+        <div class="step-item">
+          <span class="step-num">CHẶNG 2</span>
+          <div class="step-title">⚡ Đột Phá Listening &amp; Reading</div>
+          <div class="step-desc">
+            Luyện phản xạ bắt từ đồng nghĩa (paraphrase), làm chủ bẫy True/False/Not Given và điền form chuẩn xác với mục tiêu 27 - 29/40 câu đúng (= 6.5).
+          </div>
+        </div>
+
+        <div class="step-item">
+          <span class="step-num">CHẶNG 3</span>
+          <div class="step-title">✍️ Chiến Thuật Writing Task 1 &amp; 2</div>
+          <div class="step-desc">
+            Áp dụng khung cấu trúc dàn ý 4 đoạn chuẩn mực, rèn luyện từ vựng mô tả biểu đồ và sử dụng công cụ AI chấm điểm thử nghiệm 4 tiêu chí IELTS.
+          </div>
+        </div>
+
+        <div class="step-item">
+          <span class="step-num">CHẶNG 4</span>
+          <div class="step-title">🎙️ Speaking Simulator &amp; Mock Test</div>
+          <div class="step-desc">
+            Độc thoại 2 phút Part 2 với đồng hồ bấm giờ thực tế, luyện phát âm nhận diện giọng nói qua microphone và thi thử Mock Test tổng hợp.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3: Chi tiết các phòng luyện kỹ năng -->
+    <div class="card">
+      <div class="section-title">
+        <span class="icon">🎮</span>
+        <span>3. Hướng Dẫn Sử Dụng Chi Tiết Từng Tính Năng</span>
+      </div>
+
+      <table class="feature-table">
+        <thead>
+          <tr>
+            <th style="width: 25%;">Khu Vực</th>
+            <th style="width: 45%;">Nội Dung &amp; Mục Đích</th>
+            <th style="width: 30%;">Thao Tác Thực Hiện</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>📚 Từ Vựng AWL</strong></td>
+            <td>Học từ vựng học thuật C1/B2, nghe phát âm chuẩn giọng bản xứ Anh-Anh, xem ví dụ và ghi nhớ collocations đi kèm.</td>
+            <td>Bấm nút 🔊 để nghe phát âm, bấm nút mũi tên để đổi từ và làm bài trắc nghiệm nhanh nhận +25 XP.</td>
+          </tr>
+          <tr>
+            <td><strong>🛡️ Ngữ Pháp 6.5</strong></td>
+            <td>Làm chủ câu phức (Complex Sentences), mệnh đề quan hệ rút gọn (Reduced Clauses) và đảo ngữ câu điều kiện (Inversions).</td>
+            <td>Đọc công thức mẫu, chọn câu viết lại chính xác và xem giải thích ngữ pháp tức thì.</td>
+          </tr>
+          <tr>
+            <td><strong>🎧 Listening Lab</strong></td>
+            <td>Nghe đoạn hội thoại mô phỏng Section 1 &amp; Section 3 tốc độ thi thật, rèn khả năng bắt tên riêng, con số và học phần.</td>
+            <td>Bấm nút ▶ để phát âm thanh bài nghe, chọn đáp án trắc nghiệm và bấm kiểm tra vị trí từ khóa.</td>
+          </tr>
+          <tr>
+            <td><strong>📖 Reading Arena</strong></td>
+            <td>Đọc bài văn học thuật chuyên sâu (ví dụ Smart Eco-Cities), giải quyết dạng câu hỏi hóc búa True / False / Not Given.</td>
+            <td>Đọc đoạn văn ở cột trái, trả lời câu hỏi ở cột phải để nhận lời giải thích nguồn trích dẫn từ bài đọc.</td>
+          </tr>
+          <tr>
+            <td><strong>✍️ Writing Studio</strong></td>
+            <td>Thực hành viết bài luận Task 2 (250 từ). Tự động đếm từ và phân tích bài luận theo 4 tiêu chí chấm điểm IELTS chính thức.</td>
+            <td>Gõ bài luận vào ô trống rồi bấm nút <em>"⚡ Chấm Điểm &amp; Phân Tích"</em> để nhận điểm và lời khuyên cải thiện.</td>
+          </tr>
+          <tr>
+            <td><strong>🎙️ Speaking Sim</strong></td>
+            <td>Phòng mô phỏng phòng thi Speaking Part 2 với Cue Card, gợi ý từ vựng ăn điểm và đồng hồ đếm ngược 2 phút.</td>
+            <td>Nhấn vào biểu tượng Microphone 🎤 để bắt đầu nói, hệ thống sẽ tự động chuyển giọng nói thành văn bản thời gian thực.</td>
+          </tr>
+          <tr>
+            <td><strong>📊 Dự Đoán Band</strong></td>
+            <td>Bảng tính điểm Overall Band Score chính thức theo thuật toán làm tròn 0.25 / 0.75 của IDP và British Council.</td>
+            <td>Kéo các thanh trượt 4 kỹ năng (Nghe, Đọc, Viết, Nói) để xem ngay điểm tổng kết và chiến thuật đạt 6.5 tối ưu.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Card 4: Chiến thuật học tập hiệu quả -->
+    <div class="card">
+      <div class="section-title">
+        <span class="icon">🏆</span>
+        <span>4. Lời Khuyên Chiến Thuật Đạt Band 6.5 Nhanh Nhất</span>
+      </div>
+      
+      <p style="margin-bottom: 14px;">
+        Quy tắc làm tròn của kỳ thi IELTS: <strong>(Nghe + Đọc + Viết + Nói) / 4</strong>. Nếu điểm thập phân đạt từ <strong>.25</strong> sẽ được làm tròn lên <strong>.5</strong>; nếu từ <strong>.75</strong> sẽ được làm tròn lên <strong>1.0</strong>.
+      </p>
+
+      <div class="callout" style="background:#fef3c7; border-color:#f59e0b; color:#92400e;">
+        🎯 <strong>Công thức đạt 6.5 vàng cho các con:</strong>
+        <ul style="padding-left: 20px; margin-top: 8px;">
+          <li>🎧 <strong>Listening:</strong> Đạt <strong>6.5</strong> (khoảng 27 - 29/40 câu đúng).</li>
+          <li>📖 <strong>Reading:</strong> Đạt <strong>6.5</strong> (khoảng 27 - 29/40 câu đúng).</li>
+          <li>✍️ <strong>Writing:</strong> Đạt <strong>6.0</strong> (viết đủ 250 từ, đúng bố cục 4 đoạn, không lạc đề).</li>
+          <li>🎙️ <strong>Speaking:</strong> Đạt <strong>6.0</strong> (nói lưu loát, tự tin duy trì suốt 2 phút Part 2).</li>
+        </ul>
+        👉 Tổng trung bình: <strong>(6.5 + 6.5 + 6.0 + 6.0) / 4 = 6.25 ➔ Làm tròn thành OVERALL 6.5!</strong>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="doc-footer">
+      <p>© 2026 Bản quyền thuộc về TuanAI-GovTech • Hệ thống IELTS Quest 6.5 (Phiên bản v4.0)</p>
+      <p style="margin-top:4px;">Tài liệu hướng dẫn được thiết kế chuyên dụng cho gia đình và người học tự ôn luyện.</p>
+    </div>
+
+  </main>
+
+</body>
+</html>
